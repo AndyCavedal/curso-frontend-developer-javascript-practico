@@ -4,6 +4,7 @@ const menuHamburguesa = document.querySelector('.menu');
 const menuMobile = document.querySelector('.mobile-menu');
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const asideProductos = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktop);
 menuHamburguesa.addEventListener('click', toggleMobile);
@@ -61,25 +62,24 @@ for (product of productList) {
     productCard.classList.add('product-card');
 
     const productImg = document.createElement('img');
-    img.setAttribute('src', product.image);
+    productImg.setAttribute('src', product.image);
 
     const productInfo = document.createElement('div');
-    productInfo.classList.add('product-card');
+    productInfo.classList.add('product-info');
 
     const productInfoDiv = document.createElement('div');
 
-    const productPrice = createElement('p');
+    const productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price;
-    
-    const productName = createElement('p');
+    const productName = document.createElement('p');
     productName.innerText = product.name;
 
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
 
     const productInfoFigure = document.createElement('figure');
-    const productImgCart = document.createElement('figure');
-    img.setAttribute('src' , './icons/bt_add_to_cart.svg');
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src' , './icons/bt_add_to_cart.svg');
 
     productInfoFigure.appendChild(productImgCart);
 
@@ -89,4 +89,5 @@ for (product of productList) {
     productCard.appendChild(productImg);
     productCard.appendChild(productInfo);
 
+    cardsContainer.appendChild(productCard);
 }
